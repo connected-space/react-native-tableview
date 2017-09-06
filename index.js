@@ -13,6 +13,7 @@ import {
 import PropTypes from 'prop-types';
 var RNTableViewConsts = NativeModules.UIManager.RNTableView.Constants;
 var resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
+var createReactClass = require('create-react-class');
 
 function extend(el, map) {
     for (var i in map)
@@ -20,7 +21,7 @@ function extend(el, map) {
             el[i] = map[i];
     return el;
 }
-var TableView = React.createClass({
+var TableView = createReactClass({
     propTypes: {
         onPress: PropTypes.func,
         onAccessoryPress: PropTypes.func,
@@ -249,7 +250,7 @@ var TableView = React.createClass({
     },
 });
 
-TableView.Item = React.createClass({
+TableView.Item = createReactClass({
     propTypes: {
         value: PropTypes.any, // string or integer basically
         label: PropTypes.string,
@@ -261,7 +262,7 @@ TableView.Item = React.createClass({
     },
 });
 
-TableView.Footer = React.createClass({
+TableView.Footer = createReactClass({
     getInitialState(){
         return {width:0, height:0}
     },
@@ -271,7 +272,7 @@ TableView.Footer = React.createClass({
 });
 var RNFooterView = requireNativeComponent('RNTableFooterView', null);
 
-TableView.Header = React.createClass({
+TableView.Header = createReactClass({
     getInitialState(){
         return {width:0, height:0}
     },
@@ -281,7 +282,7 @@ TableView.Header = React.createClass({
 });
 var RNHeaderView = requireNativeComponent('RNTableHeaderView', null);
 
-TableView.Cell = React.createClass({
+TableView.Cell = createReactClass({
     getInitialState(){
         return {width:0, height:0}
     },
@@ -291,7 +292,7 @@ TableView.Cell = React.createClass({
 });
 var RNCellView = requireNativeComponent('RNCellView', null);
 
-TableView.Section = React.createClass({
+TableView.Section = createReactClass({
     propTypes: {
         label: PropTypes.string,
         footerLabel: PropTypes.string,
